@@ -1,14 +1,13 @@
+import os
+
 import streamlit as st
 
-PARTICIPANTS = [
-    "Zuza",
-    "Jacek",
-]
+PARTICIPANTS = os.getenv("PARTICIPANTS", "").split(",")
 
 if __name__ == "__main__":
     original_title = '<h1 style="font-family: serif; color:white; font-size: 20px;"></h1>'
     st.markdown(original_title, unsafe_allow_html=True)
-    # Set the background image
+
     background_image = """
     <style>
     [data-testid="stAppViewContainer"] > .main {
@@ -21,8 +20,6 @@ if __name__ == "__main__":
     """
 
     st.markdown(background_image, unsafe_allow_html=True)
-
-    # st.text_input("", placeholder="Streamlit CSS ")
 
     input_style = """
     <style>
